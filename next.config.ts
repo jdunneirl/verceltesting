@@ -7,9 +7,6 @@ const nextConfig: NextConfig = {
 
 
     output: "export",
-
-    appDir: true, // ✅ Ensures App Router is used
-
   pageExtensions: ['tsx', 'ts'],  // If you're using TypeScript
   reactStrictMode: false,
    webpack: (config) => {

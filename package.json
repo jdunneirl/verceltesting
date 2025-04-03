@@ -3,19 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "resolutions": {
-  "react": "^19.1.0",
-  "react-dom": "^19.1.0"
-},
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint", 
+    "lint": "next lint",
     "netlify": "next build && next export && netlify deploy"
   },
   "dependencies": {
     "@codemirror/theme-one-dark": "github:codemirror/theme-one-dark",
     "ckbox": "^2.6.1",
+    "ckeditor5": "^44.3.0",
+    "ckeditor5-premium-features": "^44.3.0",
     "jsonwebtoken": "^9.0.2",
     "next": "^15.2.4",
     "next-auth": "^4.24.11",
