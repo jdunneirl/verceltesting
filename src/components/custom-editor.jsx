@@ -82,7 +82,8 @@ import {
 	Title,
 	TodoList,
 	Underline,
-	WordCount
+	WordCount,
+	HtmlComment
 } from 'ckeditor5';
 import {
 	CaseChange,
@@ -165,7 +166,6 @@ function CustomEditor() {
 						'strikethrough',
 						'subscript',
 						'superscript',
-						'code',
 						'removeFormat',
 						'|',
 						'emoji',
@@ -222,6 +222,7 @@ function CustomEditor() {
 					GeneralHtmlSupport,
 					Heading,
 					Highlight,
+					HtmlComment,
 					HorizontalLine,
 					ImageBlock,
 					ImageCaption,
@@ -274,7 +275,6 @@ function CustomEditor() {
 					TableToolbar,
 					Template,
 					TextTransformation,
-					Title,
 					TodoList,
 					Underline,
 					WordCount
