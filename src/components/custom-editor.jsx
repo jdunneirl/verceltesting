@@ -567,7 +567,7 @@ function CustomEditor() {
 								onReady={editor => {
 									const wordCount = editor.plugins.get('WordCount');
 									editorWordCountRef.current.appendChild(wordCount.wordCountContainer);
-									CKEditorInspector.attach( editor );
+									//CKEditorInspector.attach( editor );
 							//		editorRef.current.appendChild(editor.ui.view.menuBarView.element);
 								}}
 								onAfterDestroy={() => {
