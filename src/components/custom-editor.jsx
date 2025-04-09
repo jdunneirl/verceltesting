@@ -82,7 +82,9 @@ import {
 	TodoList,
 	Underline,
 	WordCount,
-	HtmlComment
+	HtmlComment,
+	PlainTableOutput,
+	EmptyBlock
 } from 'ckeditor5';
 import {
 	CaseChange,
@@ -96,7 +98,8 @@ import {
 	SlashCommand,
 	SourceEditingEnhanced,
 	TableOfContents,
-	Template
+	Template,
+	ExportInlineStyles, getEmailInlineStylesTransformations
 } from 'ckeditor5-premium-features';
 
 import 'ckeditor5/ckeditor5.css';
@@ -194,6 +197,10 @@ function CustomEditor() {
 					],
 					shouldNotGroupWhenFull: false
 				},
+				exportInlineStyles: {
+					// Add email-specific transformations to the editor configuration.
+					transformations: getEmailInlineStylesTransformations()
+				},
 				plugins: [
 					Alignment,
 					Autoformat,
@@ -213,6 +220,7 @@ function CustomEditor() {
 					Essentials,
 					ExportPdf,
 					ExportWord,
+					ExportInlineStyles,
 					FindAndReplace,
 					FontBackgroundColor,
 					FontColor,
@@ -278,6 +286,10 @@ function CustomEditor() {
 					TodoList,
 					Underline,
 					WordCount,
+
+					// Email crappy html support
+					PlainTableOutput,
+					EmptyBlock
 				],
 				blockToolbar: [
 					'fontSize',
@@ -305,8 +317,8 @@ function CustomEditor() {
 						/* See: https://ckeditor.com/docs/ckeditor5/latest/features/converters/export-pdf.html */
 						'./export-style.css',
 						/* Export PDF needs access to stylesheets that style the content. */
-						'https://cdn.ckeditor.com/ckeditor5/44.3.0/ckeditor5.css',
-						'https://cdn.ckeditor.com/ckeditor5-premium-features/44.3.0/ckeditor5-premium-features.css'
+						'https://cdn.ckeditor.com/ckeditor5/45.0.0/ckeditor5.css',
+						'https://cdn.ckeditor.com/ckeditor5-premium-features/45.0.0/ckeditor5-premium-features.css'
 					],
 					fileName: 'export-pdf-demo.pdf',
 					converterOptions: {
@@ -326,8 +338,8 @@ function CustomEditor() {
 						/* See: https://ckeditor.com/docs/ckeditor5/latest/features/converters/export-word.html */
 					//	'./export-style.css',
 						/* Export Word needs access to stylesheets that style the content. */
-						'https://cdn.ckeditor.com/ckeditor5/44.3.0/ckeditor5.css',
-						'https://cdn.ckeditor.com/ckeditor5-premium-features/44.3.0/ckeditor5-premium-features.css'
+						'https://cdn.ckeditor.com/ckeditor5/45.0.0/ckeditor5.css',
+						'https://cdn.ckeditor.com/ckeditor5-premium-features/45.0.0/ckeditor5-premium-features.css'
 					],
 					fileName: 'export-word-demo.docx',
 					converterOptions: {
@@ -403,7 +415,8 @@ function CustomEditor() {
 							attributes: true,
 							classes: true
 						}
-					]
+					],
+					preserveEmptyBlocksInEditingView: true // might be needed for email support
 				},
 				
 				
