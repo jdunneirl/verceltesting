@@ -5,10 +5,9 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import CKEditorInspector from '@ckeditor/ckeditor5-inspector';
 import { oneDark } from '@codemirror/theme-one-dark';
 import "ckbox/dist/styles/themes/lark.css";
+
 // CKBox is a peer dependency of CKEditor. It must be present in the global scope.
 // Importing UMD build of CKBox will make sure that `window.CKBox` will be available.
-import "ckbox/dist/ckbox";
-
 import {
 	ClassicEditor,
 	Alignment,
@@ -140,6 +139,7 @@ function CustomEditor() {
 					//	"ckbox",
 					//	"imageUpload",
 						//	'|',
+						'fullScreen',
 						'GeneralHtmlSupport',
 						'sourceEditingEnhanced',
 						'insertMergeField',
@@ -248,7 +248,7 @@ function CustomEditor() {
 					MergeFields,
 					MultiLevelList,
 					PageBreak,
-					Paragraph,
+					//Paragraph,
 					PasteFromOffice,
 					PasteFromOfficeEnhanced,
 					PictureEditing,
@@ -277,7 +277,7 @@ function CustomEditor() {
 					TextTransformation,
 					TodoList,
 					Underline,
-					WordCount
+					WordCount,
 				],
 				blockToolbar: [
 					'fontSize',
@@ -318,6 +318,8 @@ function CustomEditor() {
 						page_orientation: 'portrait'
 					}
 				},
+				findAndReplace:{ uiType: 'dropdown' //'dialog' | 'dropdown' | undefined
+				 },
 				exportWord: {
 					stylesheets: [
 						/* This path should point to the content stylesheets on your assets server. */
@@ -426,13 +428,6 @@ function CustomEditor() {
 					addTargetToExternalLinks: true,
 					defaultProtocol: 'https://',
 					decorators: {
-						toggleDownloadable: {
-							mode: 'manual',
-							label: 'Downloadable',
-							attributes: {
-								download: 'file'
-							}
-						}
 					}
 				},
 				list: {
