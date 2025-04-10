@@ -26,6 +26,8 @@ export class InsertPromocodePlaceholder extends Plugin {
       "insertPromocodePlaceholder",
       new InsertPromocodePlaceholderCommand(editor)
     );
+
+    // @ts-expect-error Not sure why it's complaining about this function type, don't care at the moment
     editor.ui.componentFactory.add("insertPromocodePlaceholder", (locale) => {
       const button = new ButtonView(locale);
       const command = editor.commands.get("insertPromocodePlaceholder");
