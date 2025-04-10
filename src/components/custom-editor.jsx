@@ -110,6 +110,7 @@ import {
 
 import "ckeditor5/ckeditor5.css";
 import "ckeditor5-premium-features/ckeditor5-premium-features.css";
+import { InsertPromocodePlaceholder } from "./commands";
 
 const LICENSE_KEY =
   "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDQ3NjE1OTksImp0aSI6IjM0YjcwMzc4LTliZDktNDhlOC1hYmY0LTZlMmJkMzI0OTA4MSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6IjM5ZmNjNGRhIn0.7LfaF2_bhGhgOljVfpco-gG4C_R1CnZJhHXjn-VaYqHeB49w3o7f4gAmOc3KleYb5MV5FpEo_navf1BxiJYYYw";
@@ -154,6 +155,8 @@ function CustomEditor() {
             "insertMergeField",
             "previewMergeFields",
             "|",
+			"insertPromocodePlaceholder",
+			"|",
             "importWord",
             "exportWord",
             "exportPdf",
@@ -300,6 +303,9 @@ function CustomEditor() {
           EmptyBlock,
           Fullscreen,
           FullPage,
+
+		  // Custom buttons
+		  InsertPromocodePlaceholder
         ],
         blockToolbar: [
           "fontSize",
@@ -599,7 +605,7 @@ function CustomEditor() {
                   editorWordCountRef.current.appendChild(
                     wordCount.wordCountContainer
                   );
-                  //CKEditorInspector.attach( editor );
+                  CKEditorInspector.attach( editor );
                   //		editorRef.current.appendChild(editor.ui.view.menuBarView.element);
                 }}
                 onAfterDestroy={() => {
