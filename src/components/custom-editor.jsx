@@ -2,6 +2,7 @@
 'use client' // Required only in App Router.
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
+import { useParams } from 'next/navigation';
 import CKEditorInspector from '@ckeditor/ckeditor5-inspector';
 import { oneDark } from '@codemirror/theme-one-dark';
 import "ckbox/dist/styles/themes/lark.css";
@@ -84,7 +85,10 @@ import {
 	WordCount,
 	HtmlComment,
 	PlainTableOutput,
-	EmptyBlock
+	EmptyBlock,
+	Fullscreen,
+	FullPage, // Supports full html page editing (includes <html> <head> tags)
+	CKFinder, CKFinderUploadAdapter
 } from 'ckeditor5';
 import {
 	CaseChange,
@@ -99,7 +103,8 @@ import {
 	SourceEditingEnhanced,
 	TableOfContents,
 	Template,
-	ExportInlineStyles, getEmailInlineStylesTransformations
+	ExportInlineStyles,
+	getEmailInlineStylesTransformations,
 } from 'ckeditor5-premium-features';
 
 import 'ckeditor5/ckeditor5.css';
@@ -117,6 +122,7 @@ function CustomEditor() {
 	const editorRef = useRef(null);
 	const editorWordCountRef = useRef(null);
 	const [isLayoutReady, setIsLayoutReady] = useState(false);
+	const { authToken } = useParams();
 
 	useEffect(() => {
 		setIsLayoutReady(true);
@@ -142,7 +148,8 @@ function CustomEditor() {
 					//	"ckbox",
 					//	"imageUpload",
 						//	'|',
-						'fullScreen',
+						...(authToken ? ["ckfinder"] : []), // Show ckfinder only if a token has been passed into url
+						'fullscreen',
 						'GeneralHtmlSupport',
 						'sourceEditingEnhanced',
 						'insertMergeField',
@@ -214,6 +221,7 @@ function CustomEditor() {
 					CaseChange,
 					CKBox,
 					CKBoxImageEdit,
+					CKFinder, CKFinderUploadAdapter,
 					CloudServices,
 					Code,
 					Emoji,
@@ -289,7 +297,9 @@ function CustomEditor() {
 
 					// Email crappy html support
 					PlainTableOutput,
-					EmptyBlock
+					EmptyBlock,
+					Fullscreen,
+					FullPage
 				],
 				blockToolbar: [
 					'fontSize',
@@ -551,6 +561,13 @@ function CustomEditor() {
 							data: "<h2>Introduction</h2><p>In today's fast-paced world, keeping up with the latest trends and insights is essential for both personal growth and professional development. This article aims to shed light on a topic that resonates with many, providing valuable information and actionable advice. Whether you're seeking to enhance your knowledge, improve your skills, or simply stay informed, our comprehensive analysis offers a deep dive into the subject matter, designed to empower and inspire our readers.</p>"
 						}
 					]
+				},
+				ckfinder: {
+					uploadUrl: "/ckfinder/core/connector/php/connector.php",
+					options: {
+						resourceType: "Images"
+					},
+					openMethod: "popup"
 				}
 			}
 		};
