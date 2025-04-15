@@ -624,7 +624,7 @@ function CustomEditor() {
                   editorWordCountRef.current.appendChild(
                     wordCount.wordCountContainer
                   );
-                  CKEditorInspector.attach(editor);
+                  // CKEditorInspector.attach(editor);
                   //		editorRef.current.appendChild(editor.ui.view.menuBarView.element);
                   setEditorInstance(editor);
                 }}
