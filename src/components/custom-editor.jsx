@@ -115,10 +115,10 @@ import { MonacoSourceEditor } from "./code-editor";
 import { Editor } from "@monaco-editor/react";
 
 const LICENSE_KEY =
-  "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzQ2NTU5OTksImp0aSI6IjNkYmI2NmNkLWQ0NmYtNDJjZS04YjExLTI0MWU1ZDkxNzkyNyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCJdLCJ2YyI6IjIxYjcyNjc5In0.bowrEzwswSMzWInhlf0oaCMOkUIe9fNZdWMREqxbv1vfCnwvIE3UxMOyCikDRF09rb1eE7_zGX8ndWZhejb9hw";
+  "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDcxODA3OTksImp0aSI6ImVhNTZiNmJlLTM1YTktNGVhYS1iMWRhLTQyNGRlMmIxM2NhNSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImIwYmI3YTFlIn0.lFi3Y5j6PwLLNL6QIQNzBi-Il5Y4hFa5HH_Eml5Pe1W0ntL2Iu_tOk4YfAA3Lr8fyzdwxFGQePOBR3acSYwJEA";
 
 const CLOUD_SERVICES_TOKEN_URL =
-  "https://t0ks4t7x5eob.cke-cs.com/token/dev/fcb81c64c6d2b29fc374f7a82ecf8fdc24f8c08496be4f5fa30a69f40b92?limit=10";
+  "https://a4as8zis2kpx.cke-cs.com/token/dev/670ec4b04366d6918ecfc7543ca3f971d83bfa05a52264d9a2fdd976f670?limit=10";
 
 function CustomEditor() {
   const editorContainerRef = useRef(null);
